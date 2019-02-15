@@ -18,7 +18,8 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.use('/services', servicesRoutes)
+app.use('/services', servicesRoutes);
+app.use('/account', accountRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', {
