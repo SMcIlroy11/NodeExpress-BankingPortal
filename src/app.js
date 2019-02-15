@@ -69,8 +69,10 @@ app.post('/payment', (req, res) => {
 app.post('/transfer', (req, res) => {
     accounts[req.body.from].balance = accounts[req.body.from].balance - req.body.amount;
     accounts[req.body.to].balance = parseInt(accounts[req.body.to].balance) + parseInt(req.body.amount, 10);
-    const accountsJSON = JSON.stringify(accounts, null, 4);
     writeJSON()
+    res.render('transfer', {
+        message: 'Transfer Completed'
+    })
 });
 
 app.listen(3000, () => {
